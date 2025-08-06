@@ -41,7 +41,7 @@ $stmt->bind_param("sss", $email, $verification_code, $verification_code);
 
 if ($stmt->execute()) {
     // Email Bhejne ka Code (Brevo API) - Ismein koi change nahi
-    $apiKey = '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';
+    $apiKey = getenv('SENDINBLUE_API_KEY');
     $emailData = [
         'sender' => ['name' => 'BLX Tournaments', 'email' => 'blxtournamentsotp@gmail.com'],
         'to' => [['email' => $email]],
