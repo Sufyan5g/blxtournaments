@@ -1,0 +1,97 @@
+/* =================================================================== */
+/* == ORIGINAL ADMIN STYLE - FIXED & MADE MOBILE FRIENDLY          == */
+/* =================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root { 
+    /* Aapke Original Colors */
+    --admin-bg: #f4f7fa; 
+    --admin-sidebar-bg: #1e293b; 
+    --admin-header-bg: #ffffff; 
+    --admin-text-dark: #334155; 
+    --admin-text-light: #e2e8f0; 
+    --admin-accent: #4f46e5; 
+}
+body { 
+    background-color: var(--admin-bg); 
+    color: var(--admin-text-dark); 
+    display: flex; 
+    font-family: 'Poppins', sans-serif; 
+}
+.sidebar { width: 250px; background-color: var(--admin-sidebar-bg); color: var(--admin-text-light); height: 100vh; position: fixed; top: 0; left: 0; padding: 1rem; z-index: 10; }
+.sidebar .logo a { color: white; text-decoration: none; text-align: center; padding: 1rem 0; font-size: 1.5rem; font-weight: 700; border-bottom: 1px solid #334155; display: block; }
+.sidebar nav ul { list-style: none; padding: 0; margin-top: 2rem; }
+.sidebar nav ul li a { display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1rem; color: var(--admin-text-light); text-decoration: none; border-radius: 8px; margin-bottom: 0.5rem; transition: background-color 0.3s; }
+.sidebar nav ul li a:hover, .sidebar nav ul li a.active { background-color: var(--admin-accent); }
+.main-content { margin-left: 250px; width: calc(100% - 250px); }
+.header { background-color: var(--admin-header-bg); padding: 1rem 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+.page-content { padding: 2rem; }
+.card { background-color: #fff; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
+.dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+.dashboard-card { text-align: center; }
+.dashboard-card h3 { margin-top: 0; font-size: 1rem; color: #64748b; }
+.dashboard-card .count { font-size: 2.5rem; font-weight: 700; }
+
+/* === FIX: TABLE LAYOUT & RESPONSIVENESS === */
+.table-container {
+    overflow-x: auto; /* Tables ko mobile par scrollable banata hai */
+}
+table { width: 100%; border-collapse: collapse; }
+table th, table td { padding: 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+table th { font-size: 0.8rem; text-transform: uppercase; color: #64748b; }
+
+/* === FIX: ACTION BUTTONS STYLING & LAYOUT === */
+.actions-cell {
+    white-space: nowrap; /* Buttons ko ek line mein rakhne ki koshish karega */
+}
+.actions-cell form {
+    display: inline-block; /* Form ko side-by-side rakhega */
+    margin: 0;
+}
+.actions-cell .btn, .actions-cell .view-details-btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem; /* Neeche thora margin agar wrap ho */
+}
+.btn, .view-details-btn { padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 500; border: none; cursor: pointer; color: white; }
+.btn-primary, .view-details-btn { background-color: var(--admin-accent); }
+.btn-success, .approve-btn { background-color: #10b981; }
+.btn-danger, .reject-btn { background-color: #ef4444; }
+
+/* Modal Styling (Aapka original code) */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+.modal-content { background-color: #ffffff; color: var(--admin-text-dark); margin: auto; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; position: relative; }
+.close-btn { position: absolute; top: 1rem; right: 1.5rem; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; }
+.modal-body .screenshot { max-width: 100%; border-radius: 8px; margin-top: 1rem; }
+
+/* === FIX: MOBILE FRIENDLY DESIGN === */
+@media (max-width: 768px) {
+    body {
+        display: block; /* Flex layout khatam karein */
+    }
+    .sidebar {
+        position: relative; /* Fixed position khatam karein */
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--admin-border-color);
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .page-content {
+        padding: 1rem; /* Mobile par padding kam karein */
+    }
+    .header h2 {
+        font-size: 1rem;
+    }
+    /* Mobile par Approve/Reject buttons ko stack karein */
+    .actions-cell {
+        white-space: normal;
+    }
+    .actions-cell .btn, .actions-cell .view-details-btn {
+        display: block; /* Buttons ko poori width dein */
+        width: 100%;
+        text-align: center;
+    }
+}
