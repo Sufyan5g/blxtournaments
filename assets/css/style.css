@@ -1,0 +1,1907 @@
+/* =================================================================== */
+/* =        FINAL & POLISHED FUTURISTIC GAMING DESIGN              = */
+/* =   PERFECTLY INTEGRATED WITH YOUR WEBSITE'S ORIGINAL STRUCTURE   = */
+/* =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Polished Futuristic Color Palette */
+    --bg-deep-dark: #0A0F14;         /* Gehra, near-black background */
+    --bg-surface: #161B22;          /* Cards, Header, Modals ke liye (Dark Slate) */
+    --border-color: #30363D;          /* Subtle border color for consistency */
+    
+    /* Vibrant Accent Gradient */
+    --accent-primary: #66FCF1;      /* Bright Cyan/Teal */
+    --accent-secondary: #45A29E;    /* Darker Cyan/Teal */
+    
+    --accent-gold: #FFC700;         /* Prizes, Wallet */
+    --accent-red: #E63946;          /* Logout, Danger */
+    --accent-green-success: #27ae60; /* For success messages & status */
+
+    --text-primary: #E6EDF3;         /* Main text (Light Grey) */
+    --text-highlight: #FFFFFF;      /* Important text, Titles (Pure White) */
+    --text-dark: #0A0F14;            /* Dark text (Bright buttons par) */
+}
+
+/* --- Global & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-deep-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* =================================================================== */
+/* ==      FINAL & COMPACT HEADER (SMALLER SIZE AS REQUESTED)       == */
+/* =================================================================== */
+
+/* Main Header Tag */
+header {
+    background-color: rgba(22, 27, 34, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.27rem 3rem; /* Pehle 0.8rem tha, ab kam kar diya */
+}
+
+/* Flexbox Layout Wrapper */
+.new-header {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header ke teen hisse */
+.header-left, .header-right { flex: 1; }
+.header-center { flex: 1.5; text-align: center; }
+.header-left { display: flex; justify-content: flex-start; }
+.header-right { display: flex; justify-content: flex-end; }
+
+/* Right side ke buttons ko group karne ke liye */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* Pehle 1rem tha, ab kam kar diya */
+}
+
+/* Logo ki styling */
+.logo-link {
+    color: var(--text-highlight);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.4rem; /* Pehle 1.5rem tha, ab chota kar diya */
+    transition: color 0.3s ease;
+}
+.logo-link:hover { color: var(--accent-primary); }
+
+/* Saare buttons ki base styling */
+.profile-btn, .leaderboard-nav-btn, .wallet-btn, .register-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.36rem 0.8rem; /* Padding kam kar di */
+    border-radius: 6px; /* Corners thore kam gol */
+    font-weight: 600;
+    font-size: 0.9rem; /* Font size bhi chota kar diya */
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    gap: 0.5rem; /* Icon aur text ke beech fasla kam kiya */
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+/* Buttons ka hover effect */
+.profile-btn:hover, .leaderboard-nav-btn:hover {
+    border-color: var(--accent-primary);
+    background-color: rgba(102, 252, 241, 0.1);
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+/* Wallet/Coins button ka khaas style */
+.wallet-btn {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--text-dark);
+}
+.wallet-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 199, 0, 0.15);
+}
+
+/* Responsive Adjustments (bilkul waisa hi rakha hai) */
+@media (max-width: 768px) {
+    .new-header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .header-center {
+        order: -1;
+        width: 100%;
+    }
+    .header-left, .header-right {
+        flex-basis: 100%;
+        justify-content: center;
+    }
+}
+
+/* --- Dynamic Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: radial-gradient(circle, var(--bg-surface) 0%, var(--bg-deep-dark) 70%);
+}
+.hero h1 { font-size: 2.8rem; color: var(--text-highlight); font-weight: 700; margin-bottom: 0.5rem; }
+.hero p { font-size: 1.1rem; color: var(--text-primary); }
+
+/* --- Glowing Tournament Cards (Original Sizing) --- */
+.tournament-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Matched to original */
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: auto;
+    padding: 1.5rem 0;
+}
+
+.tournament-card {
+    background-color: var(--bg-surface);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.tournament-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-secondary);
+    box-shadow: 0 8px 25px rgba(102, 252, 241, 0.08);
+}
+
+.card-header {
+    padding: 1.2rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem; /* Adjusted for better fit */
+    color: var(--text-highlight);
+    background-color: rgba(10,15,20,0.3);
+}
+
+.card-body { 
+    background-color: transparent; /* Changed from original for a seamless look */
+    padding: 1.5rem; 
+}
+
+.tournament-info {
+    display: flex; flex-direction: column; gap: 0.8rem;
+    font-size: 0.9rem;
+}
+.tournament-info p { display: flex; justify-content: space-between; align-items: center; }
+.tournament-info span:last-child { color: var(--text-highlight); font-weight: 500; }
+.tournament-info p > span:nth-child(2) { font-weight: 600; color: var(--accent-gold); }
+.tournament-info p:nth-child(3) span:nth-child(2) { color: var(--accent-primary); }
+
+/* --- Gradient Buttons --- */
+.join-btn, .view-status-btn, .submit-btn {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; width: 100%; padding: 12px 20px;
+    margin-top: 1.5rem; font-size: 1rem; font-weight: 600;
+    border: none; border-radius: 8px; cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-dark);
+}
+.join-btn:hover, .view-status-btn:hover, .submit-btn:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 252, 241, 0.15);
+}
+.join-btn:disabled {
+    background: #30363D !important;
+    color: #888 !important;
+    cursor: not-allowed !important; transform: none; box-shadow: none;
+}
+.view-status-btn {
+    background: var(--accent-green-success); /* Using a solid green for status */
+    color: var(--text-highlight);
+}
+.view-status-btn:hover {
+    background: #218838;
+}
+
+/* --- Futuristic Modals --- */
+.modal {
+    display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(11, 12, 16, 0.85);
+    z-index: 1001; justify-content: center; align-items: center;
+    backdrop-filter: blur(8px);
+}
+.modal-content {
+    background-color: var(--bg-surface);
+    padding: 2rem; border-radius: 16px;
+    width: 90%; max-width: 450px; position: relative;
+    animation: fadeIn 0.4s ease-out;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+.close-btn {
+    position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem;
+    cursor: pointer; color: var(--text-primary); transition: color 0.3s, transform 0.3s;
+}
+.close-btn:hover { color: var(--accent-primary); transform: rotate(90deg); }
+.modal-title {
+    font-size: 1.5rem; color: var(--text-highlight); margin-bottom: 1.5rem;
+}
+/* Modal Tabs */
+.tab-container { display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+.tab { padding: 0.8rem 1rem; cursor: pointer; color: var(--text-primary); border-bottom: 3px solid transparent; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; flex: 1; justify-content: center; }
+.tab.active { color: var(--accent-primary); border-bottom-color: var(--accent-primary); font-weight: 600; }
+.tab-content, .step { display: none; }
+.tab-content.active, .step.active { display: block; }
+
+.form-group label {
+    display: block; font-weight: 500; margin-bottom: 0.5rem;
+    color: var(--text-primary); font-size: 0.9rem;
+}
+.form-group input, .form-group select {
+    width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border-color);
+    border-radius: 8px; background-color: var(--bg-deep-dark);
+    margin-bottom: 1rem; color: var(--text-highlight);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input:focus, .form-group select:focus {
+    outline: none; border-color: var(--accent-primary);
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.2);
+}
+
+/* 
+===================================================================
+==         USER REQUESTED STYLES - DO NOT MODIFY PADDING/WIDTH     ==
+== YEH STYLES AAPKE REQUEST KE MUTABIQ BILKUL WAISE HI RAKHE GAYE HAIN ==
+=================================================================== 
+*/
+/* --- Profile Page Avatar and Frame (PRESERVED & ADAPTED) --- */
+.profile-header-new {
+    text-align: center; margin-bottom: 2rem;
+    padding-bottom: 1.5rem; border-bottom: 1.5px solid var(--border-color);
+}
+.avatar-frame-container {
+    position: relative; width: 250px; height: 250px;
+    margin: 0 auto 1rem auto;
+}
+.profile-avatar-bg, .avatar-frame {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.profile-avatar-bg {
+    width: 37%; height: 37%; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%; object-fit: cover;
+    background-color: var(--bg-surface);
+    z-index: 1;
+}
+.avatar-frame { object-fit: contain; z-index: 2; pointer-events: none; }
+.profile-info-text h2 { margin: 0; color: var(--text-highlight); font-size: 1.8rem; }
+.profile-info-text p { margin: 0; color: var(--accent-gold); font-weight: 600; }
+
+/* ====================================================================== */
+/* ==      FINAL & POLISHED LEADERBOARD (WITH YOUR EXACT SIZING)       == */
+/* ====================================================================== */
+
+/* Modal ke content ki base styling */
+.leaderboard-modal-content {
+    background-color: var(--secondary-bg); 
+    color: var(--text-primary);
+    border: 2px solid var(--border-color); 
+    max-width: 500px; /* Aapki di hui width */
+    padding: 1.5rem; /* Thora consistent padding */
+}
+.leaderboard-modal-content .close-btn { 
+    color: var(--text-secondary); 
+}
+.leaderboard-modal-content .close-btn:hover { 
+    color: var(--text-primary); 
+}
+/* =================================================================== */
+/* ==   FINAL: LEADERBOARD SETTINGS ICON (CENTERED POSITIONING)     == */
+/* =================================================================== */
+
+/* Title aur Header ki base styling (Taake sab align ho) */
+.leaderboard-header {
+    text-align: left; /* Title ko left par rakhein */
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.leaderboard-header h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--text-highlight);
+    display: inline-block; /* Taake yeh poori jagah na le */
+}
+
+/* === NAYA, CENTERED SETTINGS BUTTON === */
+.leaderboard-settings-icon {
+    /* Step 1: Isko modal ke hisab se position dein */
+    position: absolute;
+    
+    /* Step 2: Isko ooper wali line mein le jayein */
+    top: 1rem; /* Close button ke barabar */
+
+    /* Step 3: Isko horizontally center karein */
+    left: 78.5%;
+    transform: translateX(-50%); /* Isko apni width ke hisab se wapis kheenche */
+    
+    /* Baaki styling waisi hi hai */
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.leaderboard-settings-icon:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    background-color: rgba(102, 252, 241, 0.1);
+    /* Transform ko update karein taake centering kharab na ho */
+    transform: translateX(-50%) rotate(90deg) scale(1.1);
+    opacity: 1;
+}
+/* --- MODERN & STYLISH LEADERBOARD TABS (Top Coins / Top Wins) --- */
+.leaderboard-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--border-color); /* Poore group ke neeche ek line */
+    margin-bottom: 1.5rem;
+    gap: 0; /* Buttons ke darmiyan koi gap nahi */
+}
+
+.leaderboard-tab-link {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    background-color: transparent;
+    border: none; /* Side borders hata diye */
+    border-bottom: 2.5px solid transparent; /* Neeche transparent border */
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: -2px; /* Line ke ooper fit karne ke liye */
+}
+
+.leaderboard-tab-link:hover {
+    background-color: var(--card-body-bg);
+    color: var(--text-primary);
+}
+
+.leaderboard-tab-link.active {
+    color: var(--accent-purple);
+    border-bottom-color: var(--accent-purple); /* Active tab ki line purple hogi */
+}
+/* ---------------- End of Tab Styles ---------------- */
+
+
+/* Leaderboard items ki list ka container */
+#leaderboard-data-container { min-height: 250px; position: relative; }
+
+.leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Aapka diya hua gap (players ke darmiyan fasla) */
+}
+
+/* Single player item (PRESERVING YOUR SIZING) */
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Elements ke darmiyan space (rank, avatar, name) */
+    background-color: var(--bg-deep-dark); /* Thora dark background taake modal se alag dikhe */
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 5px 15px rgba(102, 252, 241, 0.1);
+}
+
+/* Medal colors (aapke code se) */
+.leaderboard-item:nth-child(1) { border-left-color: #ffd700; } /* Gold */
+.leaderboard-item:nth-child(2) { border-left-color: #c0c0c0; } /* Silver */
+.leaderboard-item:nth-child(3) { border-left-color: #cd7f32; } /* Bronze */
+
+/* Rank text (PRESERVING YOUR SIZING) */
+.leaderboard-rank {
+    font-size: 1.5rem; /* Aapke code se thora adjust kiya taake avatar ke saath fit ho */
+    font-weight: 700;
+    width: 50px; /* Aapki di hui width */
+    text-align: center;
+    color: var(--text-primary);
+    flex-shrink: 0;
+}
+
+/* Avatar with Frame (PRESERVING YOUR SIZING) */
+.leaderboard-avatar-container {
+    position: relative;
+    width: 100px;  /* Aapki di hui width */
+    height: 100px; /* Aapki di hui height */
+    flex-shrink: 0;
+}
+
+.leaderboard-avatar,
+.leaderboard-badge-frame {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+.leaderboard-avatar {
+    width: 37%; /* Aapka diya hua size (Frame ke andar fit) */
+    height: 37%;/* Aapka diya hua size */
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.leaderboard-badge-frame {
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* User Info: Name and UID (PRESERVING YOUR SIZING) */
+.leaderboard-user-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+.leaderboard-user-name {
+    font-weight: 600;
+    font-size: 1rem; /* Thora behtar readability ke liye */
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.leaderboard-user-uid {
+    font-size: 0.8rem; /* Thora behtar readability ke liye */
+    color: var(--text-secondary);
+}
+
+/* Score (PRESERVING YOUR SIZING) */
+.leaderboard-score {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-yellow);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.leaderboard-score i { /* Icon ke liye */
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.no-leaderboard-data { text-align: center; padding-top: 4rem; color: var(--text-secondary); font-size: 1.1rem; }
+
+/* === MOBILE RESPONSIVE STYLES (PRESERVING YOUR SIZING) === */
+@media (max-width: 600px) {
+    .leaderboard-modal-content {
+        padding: 1rem; /* Mobile par thora consistent padding */
+        margin: 0.5rem;
+    }
+
+    .leaderboard-tab-link {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem; /* Buttons chote */
+    }
+
+    .leaderboard-item {
+        padding: 0.5rem;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+    }
+
+    .leaderboard-rank {
+        font-size: 1rem;
+        width: 30px; /* Width ko fix kiya taake layout na toote */
+        margin-right: 0.5rem;
+    }
+    
+    /* Mobile par avatar ka size thora chota kiya */
+    .leaderboard-avatar-container {
+        width: 90px;
+        height: 90px;
+    }
+    .leaderboard-avatar {
+        width: 35%; /* Chote frame ke hisab se adjust */
+        height: 35%;
+    }
+
+    .leaderboard-user-info {
+        flex-grow: 1;
+        min-width: 0;
+    }
+
+    .leaderboard-user-name {
+        font-size: 0.8rem; /* Aapke code se liya gaya */
+    }
+
+    .leaderboard-user-uid {
+        font-size: 0.7rem; /* Aapke code se liya gaya */
+    }
+
+    .leaderboard-score {
+        font-size: 0.85rem; /* Aapke code se liya gaya */
+        gap: 0.3rem;
+    }
+    .leaderboard-score i {
+        font-size: 0.75rem;
+    }
+}
+/* ============================================================== */
+/* ==                  END OF PRESERVED STYLES                 == */
+/* ============================================================== */
+
+/* --- All Other Components Styled to Match --- */
+
+/* Success Modal */
+.success-content { text-align: center; padding: 2rem; }
+.success-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background-color: var(--accent-green-success);
+    color: var(--text-highlight); display: flex;
+    justify-content: center; align-items: center;
+    font-size: 2rem; margin: 0 auto 1.5rem auto;
+    box-shadow: 0 0 20px rgba(39, 174, 96, 0.4);
+}
+.success-content .submit-btn { width: auto; padding: 0.8rem 2.5rem; margin: auto; }
+
+/* Logout & Other Profile Buttons */
+.logout-link-btn {
+    display: block; width: 100%; text-align: center;
+    padding: 12px; border-radius: 8px; text-decoration: none;
+    font-weight: bold; transition: all 0.3s;
+    margin-top: 1rem; background-color: var(--accent-red);
+    color: var(--text-highlight);
+}
+.logout-link-btn:hover { filter: brightness(1.2); }
+.logout-link-btn.history-btn {
+    background: linear-gradient(90deg, #566479, #30363D);
+}
+.logout-link-btn.support-btn { background-color: var(--accent-green-success); }
+
+
+/* History Page Table */
+.history-table-container { background-color: var(--bg-surface); padding: 1.5rem; border-radius: 12px; }
+.history-table { width: 100%; border-collapse: collapse; }
+.history-table th { text-align: left; padding-bottom: 1rem; color: var(--text-primary); border-bottom: 2px solid var(--border-color); }
+.history-table td { padding: 1rem 0.5rem; border-bottom: 1px solid var(--border-color); }
+.history-table tbody tr:last-child td { border-bottom: none; }
+.status-badge { padding: 0.3rem 0.7rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: #fff; }
+.status-approved .status-badge { background-color: var(--accent-green-success); }
+.status-pending .status-badge { background-color: var(--accent-gold); color: var(--text-dark); }
+.status-rejected .status-badge { background-color: var(--accent-red); }
+
+/* Profile Page XP & Rewards */
+.xp-stats-container {
+    background-color: var(--bg-surface);
+    padding: 1.5rem; border-radius: 12px;
+    margin-top: 2rem; border: 1px solid var(--border-color);
+}
+.xp-bar { width: 100%; height: 25px; background-color: var(--bg-deep-dark); border-radius: 25px; border: 2px solid var(--border-color); overflow: hidden; }
+.xp-progress { height: 100%; background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary)); border-radius: 25px; }
+
+.rewards-list { display: flex; flex-direction: column; gap: 1rem; }
+.reward-item {
+    display: flex; justify-content: space-between; align-items: center;
+    background-color: var(--bg-deep-dark); padding: 1rem; border-radius: 8px;
+    border-left: 4px solid var(--accent-secondary);
+}
+.claim-btn.claimed-btn {
+    background-color: var(--border-color); color: var(--accent-primary);
+    font-weight: 500; font-size: 0.8rem; padding: 0.6rem 1.2rem;
+    border: 1px solid var(--accent-secondary); cursor: not-allowed;
+}
+.claim-btn.locked-btn { cursor: not-allowed; opacity: 0.5; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .new-header { flex-wrap: wrap; justify-content: center; padding: 0.8rem 1rem; }
+    .header-left { order: 1; flex-basis: 50%; text-align: left; }
+    .header-right { order: 2; flex-basis: 50%; text-align: right; }
+    .header-center { order: 3; flex-basis: 100%; margin-top: 10px; font-size: 1.1rem; flex-direction: column; gap: 1rem; }
+    .history-table-container { overflow-x: auto; }
+}
+/* =================================================================== */
+/* ==      NEW: MODERN & PROFESSIONAL PROFILE PAGE SECTIONS         == */
+/* =================================================================== */
+
+/* === 1. Main Container for all Sections === */
+/* Yeh class aap har section ke main div ko denge (e.g., Privacy, Progression) */
+.profile-section-card {
+    background-color: var(--bg-surface); /* Dark surface color from your theme */
+    padding: 1.5rem 1.7rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem; /* Sections ke darmiyan fasla */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* Section ka Title (e.g., "Privacy Settings") */
+.profile-section-card h3 {
+    color: var(--text-highlight);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1.5px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+
+/* === 2. "Change Profile Picture" Section === */
+/* Isko aik behtar "Upload Zone" banate hain */
+.file-upload-label {
+    display: block;
+    background-color: var(--bg-deep-dark);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.file-upload-label:hover {
+    border-color: var(--accent-primary);
+    background-color: var(--bg-surface);
+}
+.file-upload-label i {
+    font-size: 2rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+.file-upload-label span {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+
+/* === 3. "Privacy Settings" Section (Custom Checkboxes) === */
+.privacy-settings p { /* "Select which information..." text */
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    opacity: 0.8;
+}
+
+.privacy-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Custom checkbox ka style */
+.custom-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    background-color: var(--bg-deep-dark);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+.custom-checkbox-label:hover {
+    border-color: var(--accent-primary);
+}
+
+.custom-checkbox-label input[type="checkbox"] {
+    display: none; /* Asal checkbox ko chupa dein */
+}
+
+/* Naya, fake checkbox banayein */
+.custom-checkbox-label .checkbox-visual {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Jab checkbox checked ho, to visual ko style karein */
+.custom-checkbox-label input:checked + .checkbox-visual {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+/* Checkmark icon (jab checked ho) */
+.custom-checkbox-label input:checked + .checkbox-visual::after {
+    content: '✔';
+    color: var(--text-dark); /* Dark text on bright background */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* === 4. "Player Progression" Section === */
+.xp-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.xp-info .level {
+    font-size: 1.2rem;
+    color: var(--text-highlight);
+}
+.xp-info .xp-text {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+/* Behtar XP Bar */
+.xp-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: var(--bg-deep-dark);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.xp-bar-progress {
+    height: 100%;
+    background: linear-gradient(65deg, var(--accent-secondary), var(--accent-primary));
+    border-radius: 20px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Level Rewards ki list */
+.rewards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.reward-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-deep-dark);
+    padding: 0.5rem 0.rem;
+    border-radius: 15px;
+    border-left: 2.5px solid var(--accent-secondary);
+}
+.reward-info {
+    font-weight: 600;
+}
+.reward-info .prize {
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+/* Reward Buttons ke States (Locked, Claimed) */
+.reward-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reward-btn.locked {
+    background-color: var(--border-color);
+    color: #888;
+    cursor: not-allowed;
+}
+
+.reward-btn.claimed {
+    background-color: var(--accent-green-success); /* Green for success */
+    color: var(--text-highlight);
+}
+
+/* === 5. "Update Profile" Button === */
+.update-profile-btn { /* Apne button ko yeh class de dein */
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-dark);
+}
+.update-profile-btn:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 8px 20px rgba(102, 252, 241, 0.15);
+}
+/* =================================================================== */
+/* ==   FINAL & PROFESSIONAL PAYMENT HISTORY TABLE (RESPONSIVE)     == */
+/* =================================================================== */
+
+/* Main container aur title ki styling */
+.page-title-container {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.page-title {
+    font-size: 2.2rem;
+    margin: 0;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Table ka wrapper */
+.history-table-container {
+    background-color: var(--bg-surface);
+    border-radius: 12px;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Asal table ki styling */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table Header (thead) */
+.history-table th {
+    text-align: left;
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Table Body (tbody) aur Rows (tr) */
+.history-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease-in-out;
+}
+.history-table tbody tr:last-child {
+    border-bottom: none;
+}
+.history-table tbody tr:hover {
+    background-color: var(--bg-deep-dark);
+}
+
+/* Table Cells (td) */
+.history-table td {
+    padding: 1.2rem 1.5rem;
+    vertical-align: middle;
+}
+
+/* Pehle column (Type) ki styling */
+.history-table td:first-child {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.tx-deposit i { color: var(--accent-green-success); }
+.tx-withdrawal i { color: var(--accent-red); }
+
+/* Status badge ki styling */
+.status-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    text-transform: capitalize;
+}
+/* Yeh classes aapke paas pehle se hongi, warna add kar lein */
+.status-approved .status-badge { background-color: var(--accent-green-success); }
+.status-pending .status-badge { background-color: var(--accent-gold); color: var(--text-dark); }
+.status-rejected .status-badge { background-color: var(--accent-red); }
+
+/* Koi history na hone par message */
+.no-history {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+}
+
+/* ============================================= */
+/* ==      MOBILE RESPONSIVE MAGIC            == */
+/* ============================================= */
+@media (max-width: 768px) {
+    .history-table thead {
+        display: none; /* Desktop headers ko chupa dein */
+    }
+
+    .history-table, .history-table tbody, .history-table tr, .history-table td {
+        display: block; /* Table ko vertical cards mein badal dein */
+        width: 100%;
+    }
+
+    .history-table tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 18px;
+        padding: 1.3rem;
+    }
+    .history-table tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .history-table td {
+        padding: 0.8rem 0.2rem;
+        display: flex;
+        justify-content: space-between; /* Label left, value right */
+        align-items: center;
+        text-align: right;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .history-table td:last-child {
+        border-bottom: none;
+    }
+    
+    /* YEH SAB SE ZAROORI HISSA HAI */
+    .history-table td::before {
+        content: attr(data-label); /* HTML se label uthayein */
+        font-weight: 600;
+        text-align: left;
+        margin-right: 1rem;
+        color: var(--text-primary);
+        opacity: 0.8;
+    }
+    
+    .history-table td:first-child {
+        /* Pehle cell ke style ko reset karein taake woh bhi label ke saath dikhe */
+        display: flex;
+        gap: 0; /* Gap ko flex-end ke zariye handle karein */
+    }
+}
+/* =================================================================== */
+/* ==      UPDATED CSS FOR OVERLAY FRAME & LOCK STATE               == */
+/* =================================================================== */
+
+/* Main Carousel Container */
+.badge-carousel-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Wrapper for the User's Profile Picture */
+.profile-avatar-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 37%; /* Frame ke andar fit hone ke liye */
+    height: 37%;
+    z-index: 1; /* Yeh neeche rahega */
+}
+
+.profile-avatar-wrapper .profile-avatar-bg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--bg-surface);
+}
+
+/* Container for the sliding frames (the overlay) */
+.badge-carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Zaroori hai taake baaki frames chup jayein */
+    z-index: 2; /* Yeh profile picture ke ooper aayega */
+}
+
+/* The track that holds all the badges */
+.badge-carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* A single badge item */
+.badge-item {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Lock overlay ke liye zaroori */
+}
+
+.badge-item .avatar-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Styling for the "LOCKED" state */
+.badge-item.locked .avatar-frame {
+    filter: grayscale(0.1) brightness(0.6); /* Dull aur dark karega */
+    opacity: 7;
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-highlight);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent kala background */
+    border-radius: 50%; /* Gol shape dene ke liye (agar frame gol hai) */
+    opacity: 0; /* Shuru mein chupa hua hoga */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Is par click na ho sake */
+}
+.badge-item.locked .lock-overlay {
+    opacity: 1; /* Locked state mein nazar aayega */
+}
+
+.lock-overlay i {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.lock-overlay span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Arrow Buttons (z-index barha diya) */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5; /* Yeh frame overlay ke bhi ooper rahenge */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 3.5px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+.carousel-arrow:hover {
+    background-color: var(--accent-primary);
+    color: var(--text-dark);
+}
+.carousel-arrow.prev { left: -40px; } /* Thora bahar nikal diya */
+.carousel-arrow.next { right: -40px; }
+
+/* User ka naam aur level text (waisa hi rahega) */
+.profile-info-text #badgeInfoText {
+    color: var(--accent-gold);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.profile-info-text #badgeInfoText.locked-text {
+    color: var(--accent-red);
+}
+/* =================================================================== */
+/* == FINAL: STACKED BUTTONS (Back Button is Smaller Clone)         == */
+/* =================================================================== */
+
+/* Container for grouping the buttons */
+.button-group {
+    display: flex;
+    flex-direction: column; /* Buttons ko ooper-neeche rakhega */
+    align-items: center; /* Dono buttons ko center mein rakhega */
+    gap: 0.03rem; /* Buttons ke darmiyan fasla */
+    margin-top: .5rem;
+}
+
+/* === "Confirm Deposit" Button (Aapka original style) === */
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%; /* Poori width le */
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-dark);
+}
+.submit-btn:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 252, 241, 0.15);
+}
+
+
+/* === STYLING FOR THE NEW BACK BUTTON === */
+/* Yeh .submit-btn ke saare styles inherit karega aur kuch ko override karega */
+.back-btn {
+    /* Base styles submit-btn se copy kiye gaye hain */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Thora kam gap */
+    
+    /* === SIZE & COLOR CHANGES === */
+    width: 50%; /* Choti width (aap isko 60% ya "auto" bhi kar sakte hain) */
+    padding: 10px 18px; /* Thori kam padding */
+    font-size: 0.9rem; /* Thora chota font */
+    font-weight: 500;
+    
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* === NEW BACKGROUND GRADIENT (GREY TONES) === */
+    background: linear-gradient(90deg, #30363D, #566479); /* Dark grey gradient */
+    color: var(--text-primary); /* Light text */
+}
+
+.back-btn:hover {
+    filter: brightness(1.2); /* Thora aur chamkega */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(86, 100, 121, 0.2); /* Grey shadow */
+}
+/* =================================================================== */
+/* ==   FINAL: STYLISH LOGIN/REGISTER FOOTER LINK (Using .message)  == */
+/* =================================================================== */
+
+/* Aapki .message class ko target karke styling ki ja rahi hai */
+p.message {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color); /* Separator line */
+    color: var(--text-primary);
+    opacity: 0.8;
+    font-size: 0.9rem; /* Thora chota font size */
+}
+
+/* Link (<a> tag) jo .message ke andar hai */
+p.message a {
+    color: var(--accent-primary); /* Aapke theme ka aala (cyan/teal) color */
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-left: 5px; /* "account?" aur "Login here" ke darmiyan thori si space */
+}
+
+/* Link par hover ka effect */
+p.message a:hover {
+    text-decoration: underline;
+    filter: brightness(1.2); /* Thora aur chamkega */
+}
+/* =================================================================== */
+/* ==      NEW: STYLE FOR "DOWNLOAD APP" BUTTON ON PROFILE PAGE     == */
+/* =================================================================== */
+
+.logout-link-btn.download-btn {
+    /* Ek aala sa neela (blue) gradient */
+    background: linear-gradient(90deg, #007BFF, #0056b3); 
+    display: flex; /* Icon aur text ko theek se align karne ke liye */
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: none;
+}
+
+.logout-link-btn.download-btn:hover {
+    filter: brightness(1.15); /* Hover par thora aur chamkega */
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+}
+/* 'Get Code' button aur email box ko bilkul line mein laane ke liye */
+.input-group {
+    display: flex;
+    align-items: center; /* Vertical alignment */
+    gap: 10px;           /* Button aur box ke beech mein space */
+}
+.input-group input {
+    flex-grow: 1; /* Input ko poori jagah dega */
+}
+
+/* Page par dikhne wale message ke liye (success aur error) */
+#getCodeMessage {
+    font-size: 0.9em;
+    margin-top: 5px; /* Thoda sa upar se space */
+    padding: 8px;
+    border-radius: 5px;
+    display: none; /* Shuru mein chupa rahega */
+}
+#getCodeMessage.success {
+    color: #38a169; /* Green color for success */
+    background-color: rgba(56, 161, 105, 0.1);
+    border: 1px solid rgba(56, 161, 105, 0.2);
+}
+#getCodeMessage.error {
+    color: #e53e3e; /* Red color for error */
+    background-color: rgba(229, 62, 62, 0.1);
+    border: 1px solid rgba(229, 62, 62, 0.2);
+}
+/* ============================================================== */
+/* ==   NAYE STYLES - REGISTRATION PAGE KE LIYE (AAPKE REQUEST PAR)   == */
+/* ============================================================== */
+
+/* 1. Email aur 'Get Code' button ko ek line mein laane ke liye */
+.input-group {
+    display: flex;
+    align-items: stretch; /* YEH SABSE ZAROORI HAI - height barabar karega */
+    gap: 10px;           
+}
+
+.input-group input {
+    flex-grow: 1; /* Input box ko poori jagah dega */
+    margin-bottom: 0 !important; /* Agar koi extra margin hai to hata dega */
+}
+
+.input-group .submit-btn {
+    flex-shrink: 0; /* Button ko chota hone se roke ga */
+    width: auto;    /* Button ki width content ke hisab se ho */
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    margin-top: 0; /* Button par se extra margin hata de */
+}
+
+
+/* 2. Messages (Error, Success, Warning) ke liye Global Style */
+.message-box {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.message-box p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Messages ke liye alag alag colors */
+
+/* Red for Error */
+.message-box.error {
+    background-color: rgba(229, 62, 62, 0.1); /* Halka laal background */
+    border-color: rgba(229, 62, 62, 0.3);
+    color: #E53E3E; /* Gehra laal text */
+}
+
+/* Green for Success */
+.message-box.success {
+    background-color: rgba(56, 161, 105, 0.1); /* Halka hara background */
+    border-color: rgba(56, 161, 105, 0.3);
+    color: #38A169; /* Gehra hara text */
+}
+
+/* Yellow for Warning */
+.message-box.warning {
+    background-color: rgba(255, 199, 0, 0.1); /* Halka peela background */
+    border-color: rgba(255, 199, 0, 0.3);
+    color: #FFC700; /* Gehra peela text */
+}
+/* =================================================================== */
+/* ==      NAYA CSS: PROFESSIONAL VERIFICATION POPUP (REQUESTED)    == */
+/* =================================================================== */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 15, 20, 0.85); /* Aapke theme ka gehra background */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none; /* Shuru mein chupa hua */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Sab se ooper */
+}
+
+.popup-content {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.4s ease-out; /* Simple fade-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.popup-title {
+    font-size: 1.6rem;
+    color: var(--text-highlight);
+    margin-bottom: 0.5rem;
+}
+
+.popup-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+#countdown-timer {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    font-family: monospace; /* Digital look ke liye */
+}
+
+#verification-code-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-deep-dark);
+    color: var(--text-highlight);
+    border-radius: 8px;
+    font-size: 1.8rem;
+    text-align: center;
+    letter-spacing: 0.8rem; /* Digits ke beech fasla */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+#verification-code-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 15px rgba(102, 252, 241, 0.2);
+}
+
+.popup-resend {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.popup-resend a {
+    color: var(--accent-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Spinning Loader Animation */
+.spinning-loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color);
+    border-top-color: var(--accent-primary);
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* =================================================================== */
+/* ==      NAYA CSS: GLOBAL SUCCESS MESSAGE (CENTERED & STYLISH)    == */
+/* =================================================================== */
+
+.message-box-global {
+    position: fixed; /* Poori screen par fix ho jayega */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 15, 20, 0.7); /* Halka sa kala background */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000; /* Sab se ooper */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.message-box-global .message-content {
+    background-color: var(--bg-surface);
+    color: var(--text-highlight);
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--accent-green-success); /* Ooper hara border */
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+/* Animation jab box aayega */
+@keyframes popIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+.message-box-global .message-content i {
+    font-size: 3rem;
+    color: var(--accent-green-success); /* Icon ka hara color */
+    margin-bottom: 1rem;
+}
+
+.message-box-global .message-content p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+/* Professional Membership Info Box */
+.membership-info {
+    background-color: rgba(0, 188, 212, 0.1);
+    border-left: 4px solid #00bcd4;
+    border-radius: 4px;
+    padding: 15px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+.membership-info h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #00bcd4;
+    font-size: 16px;
+}
+.membership-info p {
+    margin-bottom: 0;
+    color: #a0aec0;
+    font-size: 14px;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* CSS for Weekly/Monthly Tabs in Leaderboard */
+.period-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.period-tab-btn {
+    background-color: #3a3f4c;
+    color: #a7b0c1;
+    border: 1px solid #4a5568;
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.period-tab-btn:hover {
+    background-color: #4a5568;
+    color: #fff;
+}
+.period-tab-btn.active {
+    background-color: #00bcd4;
+    color: #fff;
+    border-color: #00bcd4;
+    font-weight: bold;
+}
+/* =================================== */
+/* === NAYI STYLING FOR TEAM FEATURE === */
+/* =================================== */
+
+/* Team Join Modal Search Bar */
+.search-wrapper {
+    position: relative;
+}
+.search-wrapper .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #888;
+}
+.search-results-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.search-result-item:hover {
+    background-color: #334155;
+}
+.search-result-item:not(:last-child) {
+    border-bottom: 1px solid #444;
+}
+.search-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+.search-user-details strong {
+    display: block;
+    color: #eee;
+}
+.search-user-details small {
+    color: #9ca3af;
+}
+.search-no-results {
+    padding: 15px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+/* Selected Teammates List */
+.selected-teammates-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+.selected-teammates-list li {
+    background-color: #1f2937;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.remove-teammate-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+/* Team Status Modal Styling */
+.team-status-title {
+    color: var(--primary-color);
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.team-members-list {
+    list-style: none;
+    padding: 0;
+}
+.team-member-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.team-member-item:not(:last-child) {
+    border-bottom: 1px solid #334155;
+}
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.member-info img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.member-info strong {
+    display: block;
+}
+.leader-badge {
+    color: #f59e0b;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #fff;
+    text-transform: capitalize;
+}
+.status-pill.pending { background-color: #d97706; }
+.status-pill.accepted { background-color: #16a34a; }
+.status-pill.rejected { background-color: #dc2626; }
+
+.team-updates-section {
+    margin-top: 25px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+/* =================================== */
+/* === TEAM MODAL BUTTON STYLING === */
+/* =================================== */
+
+/* Dono buttons ke liye common style */
+.modal-actions .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Icon aur text ke beech space */
+}
+
+/* Back button ki specific styling */
+.modal-actions .btn-secondary {
+    background-color: #4b5563; /* Thoda dark grey */
+    color: #e5e7eb; /* Off-white text */
+}
+
+.modal-actions .btn-secondary:hover {
+    background-color: #6b7280; /* Hover par thoda light grey */
+    transform: translateY(-2px); /* Thoda sa upar uthega */
+}
+
+/* Confirm & Join button ki specific styling */
+.modal-actions .btn-success {
+    background: linear-gradient(45deg, #22c55e, #16a34a); /* Green gradient */
+    color: white;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); /* Green glow effect */
+}
+
+.modal-actions .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4); /* Hover par glow zyada hoga */
+}
+
+/* Buttons ke container ko theek karna */
+#joinStep2 .modal-actions {
+    display: flex;
+    justify-content: space-between; /* Buttons ko dono kono mein bhejega */
+    align-items: center;
+    margin-top: 25px; /* Upar se thoda space */
+    padding-top: 15px; /* Line ke upar space */
+    border-top: 1px solid #444; /* Upar ek line */
+}
+/* =================================== */
+/* === INVITATION POPUP STYLING === */
+/* =================================== */
+
+#invitationModal .modal-content {
+    background: #1e293b; /* Darker blue-grey */
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+#invitationModal .modal-title i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+#invitationModal p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cbd5e1; /* Light grey text */
+    margin: 20px 0;
+}
+
+#invitationModal p strong {
+    color: #ffffff; /* White text for names */
+    font-weight: 600;
+}
+
+#invitationModal .modal-actions {
+    display: flex;
+    justify-content: center; /* Buttons ko center mein rakhein */
+    gap: 15px; /* Buttons ke beech space */
+    margin-top: 25px;
+}
+
+#invitationModal .btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#invitationModal .btn-danger {
+    background-color: #7f1d1d; /* Darker red */
+    color: #fecaca;
+}
+
+#invitationModal .btn-danger:hover {
+    background-color: #991b1b;
+    transform: translateY(-2px);
+}
+
+#invitationModal .btn-success {
+    background-color: #166534; /* Darker green */
+    color: #dcfce7;
+}
+
+#invitationModal .btn-success:hover {
+    background-color: #15803d;
+    transform: translateY(-2px);
+}
+/* Replace Button Styling */
+.replace-btn {
+    background-color: #3b82f6; /* Blue */
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+.replace-btn:hover {
+    background-color: #2563eb;
+}
+/* =================================== */
+/* === ROOM ID/PASS BUTTON STYLING === */
+/* =================================== */
+.room-copy-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 0.9rem;
+    background-color: #1f2937;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #4b5563;
+}
+.copy-btn {
+    flex: 1;
+    padding: 7.6px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #e5e7eb;
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.copy-btn:hover {
+    background-color: #4b5563;
+    border-color: var(--primary-color);
+}
+.copy-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+.copy-btn .fa-check { color: #22c55e; }
+.copy-btn .fa-times { color: #ef4444; }
+/* =================================== */
+/* === STYLING FOR SPONSOR FEATURE === */
+/* =================================== */
+
+/* Search result ke andar badges */
+.search-result-item .no-coins-badge,
+.search-result-item .has-coins-badge {
+    margin-left: auto; /* Isse badge bilkul right par chala jayega */
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.no-coins-badge {
+    background-color: #ef4444; /* Red */
+    color: white;
+}
+
+.has-coins-badge {
+    background-color: #22c55e; /* Green */
+    color: white;
+}
+
+/* Selected list mein sponsor badge */
+.selected-teammates-list .sponsored-badge {
+    background-color: #f59e0b; /* Orange/Gold */
+    color: #1e293b;
+    font-size: 0.75em;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 5px;
+    vertical-align: middle;
+}
